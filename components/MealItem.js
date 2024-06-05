@@ -7,12 +7,18 @@ import {
   Platform,
 } from 'react-native';
 
-function MealItem({ title, imageUrl, duration, complexity, affordability }) {
+function MealItem({ title, imageUrl, duration, complexity, affordability, onPress }) {
+
+  function pressHandler() {
+    console.log('Meal item pressed');
+  }
+
   return (
     <View style={styles.mealItem}>
       <Pressable
         android_ripple={{ color: '#ccc' }}
         style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
+        onPress={onPress}
       >
         <View style={styles.innerContainer}>
           <View>
