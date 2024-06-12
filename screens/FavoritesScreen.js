@@ -1,11 +1,7 @@
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
 
 function FavoritesScreen() {
-  return (
-    <View>
-      <Text>Favorites Screen</Text>
-    </View>
-  );
+  return <Text>The favorites screen!</Text>;
 }
 
 export default FavoritesScreen;

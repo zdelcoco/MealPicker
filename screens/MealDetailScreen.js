@@ -1,18 +1,11 @@
 import { useLayoutEffect } from 'react';
-import {
-  Text,
-  View,
-  Image,
-  StyleSheet,
-  ScrollView,
-  Button,
-} from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
 
-import { MEALS } from '../data/dummy-data';
-import MealDetails from '../components/MealDetail/MealDetails';
-import Subtitle from '../components/MealDetail/Subtitle';
-import List from '../components/MealDetail/List';
 import IconButton from '../components/IconButton';
+import List from '../components/MealDetail/List';
+import Subtitle from '../components/MealDetail/Subtitle';
+import MealDetails from '../components/MealDetails';
+import { MEALS } from '../data/dummy-data';
 
 function MealDetailScreen({ route, navigation }) {
   const mealId = route.params.mealId;
@@ -28,8 +21,8 @@ function MealDetailScreen({ route, navigation }) {
       headerRight: () => {
         return (
           <IconButton
-            icon='star'
-            color='white'
+            icon="star"
+            color="white"
             onPress={headerButtonPressHandler}
           />
         );
@@ -39,12 +32,12 @@ function MealDetailScreen({ route, navigation }) {
 
   return (
     <ScrollView style={styles.rootContainer}>
-      <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
+      <Image style={styles.image} source={{ uri: selectedMeal.imageUrl }} />
       <Text style={styles.title}>{selectedMeal.title}</Text>
       <MealDetails
         duration={selectedMeal.duration}
-        complexity={selectedMeal.complexity.toUpperCase()}
-        affordability={selectedMeal.affordability.toUpperCase()}
+        complexity={selectedMeal.complexity}
+        affordability={selectedMeal.affordability}
         textStyle={styles.detailText}
       />
       <View style={styles.listOuterContainer}>
@@ -63,17 +56,17 @@ export default MealDetailScreen;
 
 const styles = StyleSheet.create({
   rootContainer: {
-    marginBottom: 36,
+    marginBottom: 32,
   },
   image: {
     width: '100%',
     height: 350,
   },
   title: {
-    fontSize: 24,
     fontWeight: 'bold',
-    textAlign: 'center',
+    fontSize: 24,
     margin: 8,
+    textAlign: 'center',
     color: 'white',
   },
   detailText: {

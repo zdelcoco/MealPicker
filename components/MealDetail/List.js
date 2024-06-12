@@ -18,9 +18,6 @@ const styles = StyleSheet.create({
     marginVertical: 4,
     marginHorizontal: 12,
     backgroundColor: '#e2b497',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   itemText: {
     color: '#351401',
